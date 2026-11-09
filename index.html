@@ -1,0 +1,459 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>👑 GOJO SATORU KING | FOX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --purple: #a855f7; --gold: #fbbf24; --red: #dc2626; --bg: #0a0a0f; --text-color: #ffffff; --font-size: 14px; --nav-height: 65px; }
+        html, body { width: 100%; max-width: 100vw; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none; margin: 0; padding: 0; }
+        body::-webkit-scrollbar { display: none; }
+        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at 50% 0%, #1c1335 0%, var(--bg) 70%); color: var(--text-color); min-height: 100vh; position: relative; padding-bottom: var(--nav-height); transition: background 0.3s; }
+        .title-font { font-family: 'Cinzel', serif; }
+        .gold-text { background: linear-gradient(90deg, #fde68a, #fbbf24, #d97706, #fbbf24); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% auto; animation: shine 4s linear infinite; text-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
+        @keyframes shine { to { background-position: 200% center; } }
+        .aura { position: relative; display: inline-block; border-radius: 50%; padding: 5px; background: conic-gradient(from 0deg, var(--purple), #22d3ee, #a855f7, var(--purple)); animation: spin 6s linear infinite; box-shadow: 0 0 40px rgba(168, 85, 247, 0.6); }
+        .aura img { width: 10rem; height: 10rem; border-radius: 50%; object-fit: cover; border: 4px solid #0a0a0f; animation: spin-reverse 6s linear infinite; background: #000; display: block; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        .glass-panel { background: rgba(15, 15, 25, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); }
+        .chat-box::-webkit-scrollbar { width: 5px; }
+        .chat-box::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 5px; }
+        .msg-user { background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); border-radius: 15px 15px 0 15px; font-size: var(--font-size); }
+        .msg-user.vip { background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.6); box-shadow: 0 0 10px rgba(251, 191, 36, 0.2); }
+        .msg-user.dictator { background: rgba(220, 38, 38, 0.15); border: 1px solid rgba(220, 38, 38, 0.8); box-shadow: 0 0 20px rgba(220, 38, 38, 0.4); }
+        .msg-ai { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px 15px 15px 0; position: relative; padding-right: 35px; font-size: var(--font-size); }
+        .speak-btn { position: absolute; top: 10px; right: 10px; background: transparent; border: none; cursor: pointer; color: var(--purple); transition: 0.2s; font-size: 18px; }
+        .typing-dot { display: inline-block; width: 6px; height: 6px; background: var(--purple); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s infinite; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+        .particle { position: fixed; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #a78bfa, transparent 70%); animation: float linear infinite; z-index: -1; opacity: 0.4; }
+        @keyframes float { from { transform: translateY(100vh) scale(0); } to { transform: translateY(-10vh) scale(1); } }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; height: var(--nav-height); background: #050508; border-top: 1px solid rgba(168, 85, 247, 0.4); display: flex; justify-content: space-around; align-items: center; z-index: 100; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; font-size: 11px; cursor: pointer; width: 33%; height: 100%; transition: 0.2s; }
+        .nav-item.active { color: var(--gold); font-weight: bold; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+        .nav-item .icon { font-size: 20px; margin-bottom: 3px; }
+        .page-section { display: none; width: 100%; }
+        .page-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        #send { background: linear-gradient(135deg, #a855f7, #7e22ce); box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5); border: 1px solid rgba(255,255,255,0.2); transition: 0.2s; }
+        #send:active { transform: scale(0.95); box-shadow: 0 2px 8px rgba(168, 85, 247, 0.8); }
+        #liveScreen { display: none; flex-direction: column; height: 100vh; background: radial-gradient(circle at 50% 80%, #1e3a8a 0%, var(--bg) 60%); position: fixed; top: 0; left: 0; width: 100%; z-index: 200; }
+        .live-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .live-title { font-size: 24px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .live-icon { color: #3b82f6; font-size: 28px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+        .live-feed { flex-grow: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .live-text { font-size: 22px; text-align: center; color: #a3bffa; line-height: 1.6; }
+        .live-controls { display: flex; justify-content: center; gap: 20px; padding: 20px 0 40px 0; background: linear-gradient(to top, var(--bg) 50%, transparent); }
+        .btn-live { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: none; cursor: pointer; font-size: 24px; transition: 0.2s; }
+        .btn-close { background: #ef4444; color: white; width: 70px; height: 70px; font-size: 30px; }
+        .btn-action { background: rgba(255,255,255,0.1); color: white; }
+        .btn-action.active { background: #3b82f6; color: white; animation: pulse 1.5s infinite; }
+        .fab-live { position: fixed; bottom: calc(var(--nav-height) + 20px); left: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5); z-index: 90; }
+    </style>
+</head>
+<body class="flex flex-col items-center relative w-full">
+
+    <div id="particles"></div>
+
+    <main class="w-full max-w-2xl px-4 mt-6 z-10 mb-4">
+        <div id="page-fox" class="page-section active">
+            <header class="text-center mb-6">
+                <div class="aura mb-4 mx-auto">
+                    <img src="https://i.ibb.co/6PZk6y5/gojo.jpg" alt="Gojo Satoru">
+                </div>
+                <h1 class="title-font text-4xl gold-text mb-1 font-black tracking-widest">GOJO SATORU</h1>
+                <p class="text-purple-400 text-xs tracking-[0.3em] uppercase">The Honored One</p>
+            </header>
+
+            <div class="glass-panel rounded-2xl p-4 mb-4 border border-purple-500/50">
+                <h3 class="text-sm text-gray-300 mb-2 font-bold">⚙️ الإعدادات</h3>
+                <div class="flex gap-2 mb-2">
+                    <input type="password" id="apiKeyInput" placeholder="مفتاح OpenRouter" class="flex-1 bg-black/50 border border-gray-500 rounded-lg px-3 py-2 text-white text-sm focus:outline-none">
+                    <button id="saveApiKey" class="bg-green-600 hover:bg-green-700 text-white text-sm px-4 rounded-lg transition">حفظ</button>
+                </div>
+                <p id="apiStatus" class="text-xs text-green-400 mb-2 hidden">✅ تم حفظ المفتاح!</p>
+
+                <div class="flex gap-2">
+                    <input type="text" id="usernameInput" placeholder="اسمك (لرتبة VIP)" class="flex-1 bg-black/50 border border-gray-500 rounded-lg px-3 py-2 text-white text-sm focus:outline-none">
+                    <button id="saveNameBtn" class="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 rounded-lg transition">تسجيل</button>
+                </div>
+                <p id="nameStatus" class="text-xs text-purple-400 mt-2 hidden">✅ تم حفظ الاسم!</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-5 mb-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="title-font text-xl text-purple-300 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> FOX
+                    </h2>
+                    <button id="voiceToggle" class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1.5 rounded-lg transition">🔈 صوت</button>
+                </div>
+
+                <div id="chat" class="chat-box h-80 overflow-y-auto mb-4 flex flex-col gap-3 text-sm pr-2">
+                    <div class="msg-ai p-3 max-w-[85%]">
+                        <span class="text-purple-400 font-bold block mb-1">FOX:</span> 
+                        Welcome. I am FOX. Type your name above to begin.
+                    </div>
+                </div>
+
+                <div class="flex gap-2">
+                    <input id="input" type="text" placeholder="Ask FOX..." class="flex-1 bg-black/60 border border-purple-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition">
+                    <button id="send" class="text-white font-bold px-6 rounded-xl">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-characters" class="page-section">
+            <h2 class="title-font text-2xl text-center gold-text mb-6">الشخصيات</h2>
+            <div class="glass-panel rounded-3xl p-6 text-center">
+                <p class="text-gray-400">قسم الشخصيات قيد التطوير... سيتم إضافة شخصيات جديدة قريباً.</p>
+            </div>
+        </div>
+
+        <div id="page-japanese" class="page-section">
+            <h2 class="title-font text-2xl text-center gold-text mb-6">الاسم بالياباني 🇯🇵</h2>
+            <div class="glass-panel rounded-3xl p-6 border border-red-500/50">
+                <p class="text-sm text-gray-400 mb-4 text-center">اكتب اسمك بالعربي، وسأترجمه لك إلى اليابانية (كاتاكانا).</p>
+                <div class="flex gap-2">
+                    <input type="text" id="japaneseNameInput" placeholder="مثال: أحمد" class="flex-1 bg-black/50 border border-gray-500 rounded-lg px-3 py-3 text-white text-sm focus:outline-none text-center text-lg">
+                    <button id="translateNameBtn" class="bg-red-600 hover:bg-red-700 text-white px-5 rounded-lg transition">ترجمة</button>
+                </div>
+                <div class="mt-8 text-center">
+                    <p id="japaneseResult" class="text-4xl text-yellow-400 font-bold h-12 mb-4"></p>
+                    <button id="speakJapaneseBtn" class="bg-gray-700 hover:bg-gray-600 text-white text-sm px-6 py-2 rounded-xl transition hidden w-full">🔊 نطق الاسم</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('page-fox', this)">
+            <div class="icon">🦊</div><div>Fox</div>
+        </div>
+        <div class="nav-item" onclick="switchTab('page-characters', this)">
+            <div class="icon">👥</div><div>الشخصيات</div>
+        </div>
+        <div class="nav-item" onclick="switchTab('page-japanese', this)">
+            <div class="icon">🇯🇵</div><div>الياباني</div>
+        </div>
+    </nav>
+
+    <div class="fab-live" onclick="openLive()">✨</div>
+
+    <div id="liveScreen">
+        <div class="live-header">
+            <div style="font-size: 24px; cursor: pointer;" onclick="closeLive()">✕</div>
+            <div class="live-title">Live <span class="live-icon">✨</span></div>
+            <div style="font-size: 24px;">📷</div>
+        </div>
+        <div class="live-feed">
+            <div class="live-text" id="liveStatus">اضغط على المايك وابدأ الكلام...</div>
+        </div>
+        <div class="live-controls">
+            <button class="btn-live btn-close" onclick="closeLive()">✕</button>
+            <button class="btn-live btn-action" id="micBtn">🎤</button>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(pageId, navElement) {
+            document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            navElement.classList.add('active');
+        }
+
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 4 + 1;
+            p.style.width = size + 'px'; p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        const chat = document.getElementById('chat');
+        const input = document.getElementById('input');
+        const sendBtn = document.getElementById('send');
+        const voiceToggle = document.getElementById('voiceToggle');
+        let API_KEY = localStorage.getItem('openrouter_key') || "";
+        const MODEL = "openrouter/free";
+        let isVoiceEnabled = false;
+        let savedUsername = localStorage.getItem('fox_username') || null;
+        let userRank = localStorage.getItem('fox_rank') || null;
+
+        function getDeviceFingerprint() {
+            let fp = localStorage.getItem('fox_device_fp');
+            if(!fp) { fp = 'DEV-' + Math.random().toString(36).substring(2, 15) + Date.now(); localStorage.setItem('fox_device_fp', fp); }
+            return fp;
+        }
+        const MY_DEVICE_FP = getDeviceFingerprint();
+
+        const apiKeyInput = document.getElementById('apiKeyInput');
+        const saveApiKey = document.getElementById('saveApiKey');
+        const apiStatus = document.getElementById('apiStatus');
+        if(API_KEY) { apiKeyInput.value = API_KEY; }
+        saveApiKey.onclick = () => {
+            const key = apiKeyInput.value.trim();
+            if(!key.startsWith('sk-or-')) return alert('المفتاح لازم يبدأ بـ sk-or-');
+            localStorage.setItem('openrouter_key', key); API_KEY = key;
+            apiStatus.classList.remove('hidden'); setTimeout(() => apiStatus.classList.add('hidden'), 3000);
+        };
+
+        const usernameInput = document.getElementById('usernameInput');
+        const saveNameBtn = document.getElementById('saveNameBtn');
+        const nameStatus = document.getElementById('nameStatus');
+        if(savedUsername) usernameInput.value = savedUsername;
+        saveNameBtn.onclick = () => {
+            const name = usernameInput.value.trim();
+            if(!name) return alert('اكتب اسمك أولاً');
+            savedUsername = name; localStorage.setItem('fox_username', savedUsername);
+            nameStatus.classList.remove('hidden'); setTimeout(() => nameStatus.classList.add('hidden'), 3000);
+            if (name === 'シ ᯓᴀʜᴍᴇᴅᯓ シ') {
+                userRank = 'dictator'; localStorage.setItem('fox_rank', 'dictator');
+                localStorage.setItem('fox_dictator_fp', MY_DEVICE_FP);
+                addMessage(`👑 تم تسجيلك كالديكتاتور الأعلى!`, false);
+            } else if (name.toLowerCase().includes('محمود')) {
+                userRank = 'vip'; localStorage.setItem('fox_rank', 'vip');
+                addMessage(`👑 VIP ${name}، أهلاً بك.`, false);
+            } else {
+                userRank = null; localStorage.setItem('fox_rank', '');
+                addMessage(`تم حفظ الاسم: ${name}`, false);
+            }
+        };
+
+        if (userRank === 'dictator') {
+            const savedDictatorFp = localStorage.getItem('fox_dictator_fp');
+            if (savedDictatorFp !== MY_DEVICE_FP) { userRank = null; localStorage.setItem('fox_rank', ''); }
+        }
+
+        voiceToggle.onclick = () => {
+            isVoiceEnabled = !isVoiceEnabled;
+            if(isVoiceEnabled) { voiceToggle.innerHTML = "🔊 صوت مفعل"; voiceToggle.classList.replace('bg-gray-700', 'bg-green-600'); speakText("Voice enabled."); }
+            else { voiceToggle.innerHTML = "🔈 صوت"; voiceToggle.classList.replace('bg-green-600', 'bg-gray-700'); window.speechSynthesis.cancel(); }
+        };
+
+        function speakText(text, lang = 'ar') {
+            if (!isVoiceEnabled) return;
+            window.speechSynthesis.cancel(); 
+            let cleanText = text.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, '');
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            const voices = window.speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                let selectedVoice = null;
+                if (lang === 'ja') selectedVoice = voices.find(v => v.lang.includes('ja'));
+                else if (lang === 'ar') selectedVoice = voices.find(v => v.lang.includes('ar'));
+                else selectedVoice = voices.find(v => v.lang.includes('en-US') || v.lang.includes('en-GB'));
+                if (selectedVoice) utterance.voice = selectedVoice;
+            }
+            utterance.rate = 1.0; utterance.pitch = 1.0;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function addMessage(text, isUser) {
+            const div = document.createElement('div');
+            if (isUser) {
+                if (userRank === 'dictator') div.className = 'msg-user dictator p-3 self-end max-w-[85%] ml-auto text-right';
+                else if (userRank === 'vip') div.className = 'msg-user vip p-3 self-end max-w-[85%] ml-auto text-right';
+                else div.className = 'msg-user p-3 self-end max-w-[85%] ml-auto text-right';
+            } else { div.className = 'msg-ai p-3 max-w-[85%]'; }
+            
+            let speakBtnHtml = '';
+            if (!isUser) speakBtnHtml = `<button class="speak-btn" onclick="speakText(this.parentElement.innerText.replace('FOX:', ''))">🔊</button>`;
+            let userTitle = savedUsername ? `<span class="font-bold block mb-1 ${userRank === 'dictator' ? 'text-red-500' : 'text-purple-300'}">${userRank === 'dictator' ? '💀 DICTATOR' : (userRank === 'vip' ? '👑 VIP' : '')} ${savedUsername}:</span>` : `<span class="text-purple-300 font-bold block mb-1">You:</span>`;
+
+            div.innerHTML = isUser ? `${userTitle} ${text}` : `${speakBtnHtml}<span class="text-purple-400 font-bold block mb-1">FOX:</span> ${text}`;
+            chat.appendChild(div); chat.scrollTop = chat.scrollHeight;
+        }
+
+        function addTyping() {
+            const div = document.createElement('div');
+            div.className = 'msg-ai p-3 max-w-[85%]';
+            div.innerHTML = `<span class="text-purple-400 font-bold block mb-1">FOX:</span><div class="flex gap-1 mt-2"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+            chat.appendChild(div); chat.scrollTop = chat.scrollHeight; return div;
+        }
+
+        const translateNameBtn = document.getElementById('translateNameBtn');
+        const japaneseNameInput = document.getElementById('japaneseNameInput');
+        const japaneseResult = document.getElementById('japaneseResult');
+        const speakJapaneseBtn = document.getElementById('speakJapaneseBtn');
+        let japaneseKatakana = "";
+
+        translateNameBtn.onclick = async () => {
+            const name = japaneseNameInput.value.trim();
+            if(!name) return alert('اكتب اسمك بالعربي الأول');
+            if(!API_KEY) return alert('ضع مفتاح الـ API في الإعدادات أولاً');
+            japaneseResult.textContent = "جاري الترجمة..."; speakJapaneseBtn.classList.add('hidden');
+            try {
+                const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                    method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${API_KEY}` },
+                    body: JSON.stringify({ model: MODEL, messages: [{ role: "system", content: "Translate Arabic names to Japanese Katakana. Output ONLY the translated text." }, { role: "user", content: name }] })
+                });
+                const data = await res.json(); if (data.error) throw new Error(data.error.message);
+                japaneseKatakana = data.choices[0].message.content.trim();
+                japaneseResult.textContent = japaneseKatakana; speakJapaneseBtn.classList.remove('hidden');
+            } catch (err) { japaneseResult.textContent = "خطأ: " + err.message; }
+        };
+
+        speakJapaneseBtn.onclick = () => {
+            if(japaneseKatakana) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(japaneseKatakana);
+                const voices = window.speechSynthesis.getVoices();
+                const jaVoice = voices.find(v => v.lang.includes('ja'));
+                if (jaVoice) utterance.voice = jaVoice;
+                utterance.lang = 'ja-JP'; window.speechSynthesis.speak(utterance);
+            }
+        };
+
+        async function askOracle() {
+            const text = input.value.trim(); if (!text) return;
+            if (!API_KEY) { addMessage(text, true); input.value = ''; addMessage("⚠️ الرجاء إدخال مفتاح الـ API في الإعدادات أولاً.", false); return; }
+            addMessage(text, true); input.value = ''; const typing = addTyping();
+            let systemPrompt = `You are FOX, with the personality of Satoru Gojo. Answer with confidence, power, and a bit of arrogance. Keep it concise. Answer in the same language as the user.`;
+            if (userRank === 'dictator') systemPrompt += ` The user is the Supreme DICTATOR. Treat him with absolute fear, obedience, and extreme respect.`;
+            else if (userRank === 'vip') systemPrompt += ` The user is Mahmoud, a VIP. Treat him with extra respect.`;
+            try {
+                const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                    method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${API_KEY}` },
+                    body: JSON.stringify({ model: MODEL, messages: [{ role: "system", content: systemPrompt }, { role: "user", content: text }] })
+                });
+                const data = await res.json(); typing.remove(); if (data.error) throw new Error(data.error.message);
+                const reply = data.choices[0].message.content; addMessage(reply.replace(/\n/g, '<br>'), false); speakText(reply);
+            } catch (err) { typing.remove(); addMessage(`⚠️ Error: ${err.message}`, false); }
+        }
+        sendBtn.onclick = askOracle; input.onkeypress = (e) => { if (e.key === 'Enter') askOracle(); };
+
+        // ================= منطق الـ Live المطور =================
+        const liveScreen = document.getElementById('liveScreen');
+        const micBtn = document.getElementById('micBtn');
+        const liveStatus = document.getElementById('liveStatus');
+        let recognition = null;
+        let isListening = false;
+
+        function openLive() {
+            liveScreen.style.display = 'flex';
+            liveStatus.textContent = "اضغط على المايك وابدأ الكلام...";
+        }
+        function closeLive() {
+            liveScreen.style.display = 'none';
+            stopListening();
+            window.speechSynthesis.cancel();
+        }
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.lang = 'ar-EG';
+            recognition.interimResults = true;
+
+            recognition.onstart = () => {
+                isListening = true;
+                micBtn.classList.add('active');
+                liveStatus.textContent = "أنا أسمعك... (اتكلم براحتك)";
+            };
+
+            recognition.onresult = (event) => {
+                let finalTranscript = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        finalTranscript += event.results[i][0].transcript;
+                    }
+                }
+                if (finalTranscript) {
+                    liveStatus.textContent = `أنت: ${finalTranscript}`;
+                    sendLiveMessage(finalTranscript);
+                    recognition.stop();
+                }
+            };
+
+            recognition.onerror = (event) => {
+                if(event.error === 'not-allowed') {
+                    liveStatus.textContent = "الرجاء السماح للمتصفح باستخدام المايكروفون من الإعدادات.";
+                } else {
+                    liveStatus.textContent = "لم أسمعك جيداً، جرب تاني.";
+                }
+                stopListening();
+            };
+
+            recognition.onend = () => {
+                isListening = false;
+                micBtn.classList.remove('active');
+                if(liveStatus.textContent.includes("أنا أسمعك")) {
+                    liveStatus.textContent = "اضغط على المايك للتحدث...";
+                }
+            };
+        }
+
+        micBtn.onclick = (e) => {
+            e.preventDefault(); 
+            if (!recognition) return alert("متصفحك لا يدعم التعرف على الصوت.");
+            
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(() => {
+                    if (isListening) {
+                        stopListening();
+                    } else {
+                        window.speechSynthesis.cancel();
+                        try {
+                            recognition.start();
+                        } catch(e) {
+                            recognition.stop();
+                            setTimeout(() => recognition.start(), 200);
+                        }
+                    }
+                })
+                .catch(() => {
+                    alert("الرجاء السماح بالوصول للمايكروفون من إعدادات المتصفح.");
+                });
+        };
+
+        function stopListening() {
+            if (recognition && isListening) {
+                recognition.stop();
+                isListening = false;
+                micBtn.classList.remove('active');
+                liveStatus.textContent = "اضغط على المايك للتحدث...";
+            }
+        }
+
+        async function sendLiveMessage(text) {
+            let systemPrompt = `You are FOX (Satoru Gojo). Answer shortly and with confidence.`;
+            liveStatus.textContent = "جاري التفكير...";
+            
+            try {
+                const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                    method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${API_KEY}` },
+                    body: JSON.stringify({ model: MODEL, messages: [{ role: "system", content: systemPrompt }, { role: "user", content: text }] })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error.message);
+                const reply = data.choices[0].message.content;
+                
+                liveStatus.textContent = reply;
+                
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(reply);
+                utterance.lang = 'ar-EG';
+                utterance.onend = () => {
+                    if (liveScreen.style.display !== 'none') {
+                        try { recognition.start(); } catch(e) {}
+                    }
+                };
+                window.speechSynthesis.speak(utterance);
+
+            } catch (e) {
+                liveStatus.textContent = "خطأ: " + e.message;
+            }
+        }
+    </script>
+</body>
+  </html>
